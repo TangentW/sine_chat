@@ -3,8 +3,6 @@
 
 一个小型即时通信服务（练手项目）。
 
-![demo](https://github.com/TangentW/sine_chat/blob/3f851cde01131159c761c1ab9e21b83274fefc03/imgs/demo.gif)
-
 ---
 
 ## 简介
@@ -12,6 +10,8 @@
  `Sine Chat` 是一个我用于练手 Rust 的项目，网络侧基于 TCP 进行数据传输；在工程上基于 Rust 的 Future 使用了异步的编码方式（协程），并以 `tokio` 作为异步的 runtime。
 
 Demo 展示：
+
+![demo](https://github.com/TangentW/sine_chat/blob/3f851cde01131159c761c1ab9e21b83274fefc03/imgs/demo.gif)
 
 ## 帧
 
