@@ -3,6 +3,8 @@
 
 一个小型即时通信服务（练手项目）。
 
+![demo](https://github.com/TangentW/sine_chat/blob/3f851cde01131159c761c1ab9e21b83274fefc03/imgs/demo.gif)
+
 ---
 
 ## 简介
@@ -14,6 +16,8 @@ Demo 展示：
 ## 帧
 
 因为 TCP 基于字节流，所以应用层上需要拟定数据帧（frame）进行数据包划分。`Sine Chat` 的数据帧设计如下：
+
+![frame](https://github.com/TangentW/sine_chat/blob/3f851cde01131159c761c1ab9e21b83274fefc03/imgs/frame.png)
 
 帧主要分成两大部分：`帧头（header）`和`数据载荷（payload）`。
 
@@ -33,7 +37,10 @@ Demo 展示：
 
 ## 通信流
 
+![flow](https://github.com/TangentW/sine_chat/blob/3f851cde01131159c761c1ab9e21b83274fefc03/imgs/flow.png)
+
 ### 握手阶段
+
 客户端在与服务端 TCP 连接后，需要进行 `Sine Chat` 侧的握手（handshake），客户端此时需向服务端传递鉴权信息（token），以向服务端表明身份。服务端收到握手信息后进行鉴权处理，继而向客户端发送握手响应。若客户端在与服务端建立 TCP 连接后长时间不进行握手，服务端则会主动关闭 TCP 连接。
 
 如服务端校验握手信息成功，客户端则进入在线状态。
@@ -41,6 +48,7 @@ Demo 展示：
 因 `Sine Chat` 尚未接入数据库，且作为练手项目，为了简单，所以这里握手的鉴权处理则直接把客户端传入的 token 作为客户端用户名，以用于后续的客户端间消息传递。
 
 ### 在线阶段
+
 客户端握手成功后，可以发送消息，消息需要拟定接收方，为了简单，这里直接指定为接收方客户端的用户名。
 
 发送方客户端发送的消息传至服务端后，服务端会继而给客户端发送消息回应。
